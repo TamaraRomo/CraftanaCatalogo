@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Calculadora</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+        background-color: lightseagreen;
+        }
+        .calculadora{
+        display:block;
+        margin: 0 auto;
+        margin-top: 60px;
+        padding: 20px;
+        width:  260px;
+        height: 390px;
+        border-radius: 25px;
+        background-color: lightgreen;
+        box-shadow: 15px 15px 0px #00000033;
+        }
+        input[type=textfield]{
+        width: 230px;
+        height: 55px;
+        margin: 10px;
+        background-color: whitesmoke;
+        border-radius: 5px;
+        box-shadow: 0px 0px 0px 5px #00000033;
+        font-size: 30px;
+        min-width: 20%;
+        text-align: right;
+        font-family: 'Courier New', Courier, monospace;
+        }
+        input[type=reset]{
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+        background-color: lightgreen;
+        margin: 5px;
+        border-color: whitesmoke;
+        border-radius: 10px;
+        box-shadow: 1px 1px 0px #00000050;
+        font-family:'Franklin Gothic Medium';
+        cursor: pointer;
+        }
+        button[id=igual]{
+        width:114px;
+        height: 50px;
+        font-size: 20px;
+        background-color: lightgreen;
+        margin: 5px;
+        border-color: whitesmoke;
+        border-radius: 10px;
+        box-shadow: 1px 1px 0px #00000050;
+        font-family:'Franklin Gothic Medium';
+        cursor: pointer;
+        }
+        button{
+        width:50px;
+        height: 50px;
+        font-size: 20px;
+        background-color: lightgreen;
+        margin: 5px;
+        border-color: whitesmoke;
+        border-radius: 10px;
+        box-shadow: 1px 1px 0px #00000050;
+        font-family:'Franklin Gothic Medium';
+        cursor: pointer;
+        }
+        button:hover, input[type=reset]:hover {
+        background-color: #00000033;
+        }
+        p{
+            text-align: center;
+            margin-top: 75px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: small;
+            color: blanchedalmond;
+        }
+
+    </style>
+    </head>
+    
+<body>
+    <form class="calculadora">
+        
+            <input type="textfield" id="resultado" value="">
+        
+            <br>
+            <input type="reset" value="C">
+            <button type="button" value="&radic;" onclick="raizCuadrada()">&radic;</button>
+            <button type="button" value="%" onclick="display('%')">%</button>
+            <button type="button" value="/" onclick="display('/')">/</button>
+            <br>
+            <button type="button" value="7" onclick="display('7')">7</button>
+            <button type="button" value="8" onclick="display('8')">8</button>
+            <button type="button" value="9" onclick="display('9')">9</button>
+            <button type="button" value="*" onclick="display('*')">*</button>
+            <br>
+            <button type="button" value="4" onclick="display('4')">4</button>
+            <button type="button" value="5" onclick="display('5')">5</button>
+            <button type="button" value="6" onclick="display('6')">6</button>
+            <button type="button" value="+" onclick="display('+')">+</button>
+            <br>
+            <button type="button" value="1" onclick="display('1')">1</button>
+            <button type="button" value="2" onclick="display('2')">2</button>
+            <button type="button" value="3" onclick="display('3')">3</button>
+            <button type="button" value="-" onclick="display('-')">-</button>
+            <br>
+            <button type="button" value="0" onclick="display('0')">0</button>
+            <button type="button" value="." onclick="display('.')">.</button>
+            <button id="igual" type="button" value="=" onclick="resolver()">=</button>
+        
+    </form>
+    <br>
+    <p>Por: Tamara Rodríguez Romo</p>
+
+    <script>
+        function display(Valor){
+            document.getElementById('resultado').value += Valor;
+            }
+
+        function raizCuadrada(){
+            let numero = document.getElementById('resultado').value;
+            let raiz = Math.sqrt(numero);
+
+            document.getElementById('resultado').value = raiz;
+        }
+        
+        function resolver(){
+            let operacion = document.getElementById('resultado').value;
+            let resultado = eval(operacion);
+            document.getElementById('resultado').value = resultado;
+
+            return resultado; 
+            }
+    </script>
+</body>
+</html>
